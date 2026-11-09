@@ -1,0 +1,104 @@
+/* --- 1. CSS Variables & Theme Setup --- */
+:root {
+  --primary-color: #2563eb;       /* Vibrant blue */
+  --primary-dark: #1d4ed8;
+  --text-main: #1f2937;           /* Dark gray for readability */
+  --text-muted: #4b5563;          /* Muted gray */
+  --bg-color: #f9fafb;            /* Soft off-white */
+  --card-bg: #ffffff;
+  
+  /* 8px Spacing System */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+}
+
+/* Import Google Font (Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* --- 2. Type & Base Selectors --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* --- 3. Layout & Flexbox (Class Selector) --- */
+header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid #e5e7eb;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Main Content Layout */
+main {
+  max-width: 1200px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-md);
+}
+
+/* Grid Component (ID Selector used for unique section) */
+#projects-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default 1 column for mobile (320px) */
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  padding: var(--space-md);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* --- 4. Responsiveness (@Media Queries) --- */
+
+/* Tablet Viewport (768px and up) */
+@media (min-width: 768px) {
+  #projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+}
+
+/* Desktop Viewport (1200px and up) */
+@media (min-width: 1200px) {
+  #projects-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  }
+}
